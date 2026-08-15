@@ -1,0 +1,89 @@
+/* Removes default browser spacing and sets a background color that matches your image's sky */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #eadfcb; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Georgia', serif;
+    overflow: hidden; 
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* This keeps the text and orb anchored to the image, no matter the screen size */
+.image-wrapper {
+    position: relative;
+    height: 100%;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.main-image {
+    height: 100%;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Your name placed exactly at the top left of the image */
+.name-text {
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #121a30; /* Dark navy color matching the night sky in the image */
+    pointer-events: none; 
+}
+
+/* The invisible path that the orb travels on */
+.orbit-container {
+    position: absolute;
+    top: 35%;  /* Positioned precisely above the girl's head */
+    left: 31%; /* Positioned precisely above the girl's head */
+    width: 0;
+    height: 0;
+    animation: orbit 6s linear infinite;
+    z-index: 10;
+}
+
+/* The blue glowing LinkedIn sun */
+.linkedin-orb {
+    position: absolute;
+    top: -25px; 
+    left: -25px; 
+    width: 50px;
+    height: 50px;
+    background-color: #0A66C2; /* Official LinkedIn Blue */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 0 15px #0A66C2, 0 0 35px #4090ff; /* The sun glow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.linkedin-orb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px #0A66C2, 0 0 50px #4090ff, 0 0 70px white;
+}
+
+/* The math for the circular orbit animation */
+@keyframes orbit {
+    0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
